@@ -1,0 +1,3 @@
+RedHat:
+  package_name: qualys-cloud-agent
+  service_name: qualys-cloud-agent
