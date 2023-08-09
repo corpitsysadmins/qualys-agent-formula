@@ -21,6 +21,14 @@ qualys_cloud_agent_install:
       - pkg: {{ qualys_agent.package_name }}
     - require:
       - pkg: {{ qualys_agent.package_name }}
+      
+qualys_agent_service_stop:
+  service.dead:
+    - name: {{ qualys_agent.service_name }}
+    - onchanges:
+      - qualys_cloud_agent_install
+    - require:
+      - qualys_cloud_agent_install
     - required_in:
       - service: qualys_agent_service
 
