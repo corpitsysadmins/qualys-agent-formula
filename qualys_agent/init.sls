@@ -16,7 +16,7 @@
 
 qualys_cloud_agent_install:
   cmd.run:
-    - name: /path/to/qualys-cloud-agent.sh ActivationId={{ qualys_agent.activation_id }} CustomerId={{ qualys_agent.customer_id }}
+    - name: {{ qualys_agent.path_to_qualys_cloud_agent }} ActivationId={{ qualys_agent.activation_id }} CustomerId={{ qualys_agent.customer_id }}
     - onchanges:
       - pkg: {{ qualys_agent.package_name }}
     - require:
