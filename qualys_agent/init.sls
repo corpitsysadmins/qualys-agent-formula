@@ -14,11 +14,15 @@
   - required_in:
     - service: qualys_agent_service
 
-#qualys_cloud_agent_install:
-#  cmd.run:
-#    - name: /path/to/qualys-cloud-agent.sh ActivationId={{ qualys_agent.activation_id }} CustomerId={{ qualys_agent.customer_id }}
-#    - require:
-#      - pkg: {{qualys-cloud-agent.package_name }}
+qualys_cloud_agent_install:
+  cmd.run:
+    - name: /path/to/qualys-cloud-agent.sh ActivationId={{ qualys_agent.activation_id }} CustomerId={{ qualys_agent.customer_id }}
+    - onchanges:
+      - pkg: {{qualys-cloud-agent.package_name }}
+    - require:
+      - pkg: {{qualys-cloud-agent.package_name }}
+    - required_in:
+      - service: qualys_agent_service
 
 qualys_agent_service:
   service.running:
