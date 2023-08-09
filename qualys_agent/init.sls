@@ -1,4 +1,4 @@
-{%- set default_sources = {'module' : 'qualys_agent', 'defaults' : True, 'pillar' : True, 'grains' : ['os_family']} %}
+{%- set default_sources = {'module' : 'qualys_agent', 'pillar' : True, 'grains' : ['os_family']} %}
 {%- from "./defaults/load_config.jinja" import config as qualys_agent with context %}
 
 {% if qualys_agent.use is defined %}
